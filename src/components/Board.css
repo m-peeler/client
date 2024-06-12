@@ -1,0 +1,82 @@
+
+.gameBoard {
+    justify-content: center;
+    display: flex;
+}
+
+.boardRoot {
+    width: clamp(400px, 60%, 90vh);
+    aspect-ratio: 1;
+}
+
+
+.board {
+    display: flex;
+    flex: 1;
+}
+
+.rows {
+    flex-direction: column; 
+    flex: 1;
+    position: relative;
+}
+
+.square {
+    flex-direction: row;
+    aspect-ratio: 1;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    content: '';
+    padding: 10%;
+}
+
+.rows.row-0::after, .rows.row-1::after {
+    content: '';
+    width: 300%;
+    height: 2%;
+    background-color: black;
+    position: absolute;
+    z-index: 2;
+    border-radius: 5px;
+}
+
+.rows.row-0::after {
+    transform: translate(calc(-50% / 3), calc(-50% + -10000% / 3));
+}
+
+.rows.row-1::after {
+    transform: translate(-50%, calc(-50% + -10000% / 6));
+}
+
+.rows.row-0::before, .rows.row-1::before {
+    content: '';
+    width: 6%;
+    height: 100%;
+    border-radius: 5px;
+    transform: translateX(800%);
+    background-color: black;
+    position: absolute;
+    z-index: 2;
+}
+
+.square.depth-0 {
+    --hover-color: blue;
+}
+
+.square.depth-1 {
+    --hover-color: green;
+}
+
+.square.depth-2 {
+    --hover-color: red;
+}
+
+.square.depth-3 {
+    --hover-color: yellow;
+}
+
+.square:hover {
+    background-color: var(--hover-color);
+}
